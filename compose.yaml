@@ -1,0 +1,7 @@
+﻿services:
+  omicrontestcase:
+    image: omicrontestcase
+    build:
+      context: .
+      dockerfile: OmicronTestCase/Dockerfile
+

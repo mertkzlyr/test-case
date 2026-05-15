@@ -1,0 +1,6 @@
+@OmicronTestCase_HostAddress = http://localhost:5101
+
+GET {{OmicronTestCase_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
