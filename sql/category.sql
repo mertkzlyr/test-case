@@ -1,4 +1,6 @@
-﻿CREATE TABLE Categories (
+﻿CREATE DATABASE RuleWayDb;
+
+CREATE TABLE Categories (
     Id INT IDENTITY(1,1) PRIMARY KEY,
     Name NVARCHAR(255) NOT NULL,
     MinStockQuantity INT NOT NULL
