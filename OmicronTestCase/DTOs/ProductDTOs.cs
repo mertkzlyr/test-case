@@ -4,7 +4,7 @@ namespace OmicronTestCase.DTOs;
 
 public class CreateProductRequest
 {
-    [Required][MaxLength(200)]
+    [Required][MinLength(1)][MaxLength(200)]
     public string Title { get; set; } = string.Empty;
     public string? Description { get; set; }
     [Required]
@@ -15,7 +15,7 @@ public class CreateProductRequest
 
 public class UpdateProductRequest
 {
-    [Required][MaxLength(200)]
+    [Required][MinLength(1)][MaxLength(200)]
     public string Title { get; set; } = string.Empty;
     public string? Description { get; set; }
     [Required]
