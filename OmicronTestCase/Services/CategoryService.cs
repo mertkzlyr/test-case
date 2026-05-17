@@ -4,7 +4,7 @@ using OmicronTestCase.Repositories;
 
 namespace OmicronTestCase.Services;
 
-public class CategoryService(ICategoryRepository categoryRepository) : ICategoryService
+public class CategoryService(ICategoryRepository categoryRepository, IProductRepository productRepository) : ICategoryService
 {
     public async Task<List<CategoryResponse>> GetAllAsync()
     {
@@ -38,6 +38,8 @@ public class CategoryService(ICategoryRepository categoryRepository) : ICategory
         category.MinStockQuantity = request.MinStockQuantity;
 
         var updated = await categoryRepository.UpdateAsync(category);
+        
+        await productRepository.UpdateIsLiveForCategoryAsync(id, request.MinStockQuantity);
         return MapToResponse(updated);
     }
 

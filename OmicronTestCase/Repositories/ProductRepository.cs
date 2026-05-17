@@ -58,4 +58,16 @@ public class ProductRepository(AppDbContext dbContext) : IProductRepository
         dbContext.Products.Remove(product);
         await dbContext.SaveChangesAsync();
     }
+
+    public async Task UpdateIsLiveForCategoryAsync(int categoryId, int minStockQuantity)
+    {
+        var products = await dbContext.Products
+            .Where(p => p.CategoryId == categoryId)
+            .ToListAsync();
+
+        foreach (var product in products)
+            product.IsLive = product.StockQuantity >= minStockQuantity;
+
+        await dbContext.SaveChangesAsync();
+    }
 }

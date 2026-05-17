@@ -11,4 +11,5 @@ public interface IProductRepository
     Task<Product> CreateAsync(Product product);
     Task<Product> UpdateAsync(Product product);
     Task DeleteAsync(Product product);
+    Task UpdateIsLiveForCategoryAsync(int categoryId, int minStockQuantity);
 }
